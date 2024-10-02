@@ -9,6 +9,7 @@ import MyJobs from "./pages/MyJobs";
 import Onboarding from "./pages/Onboarding";
 import PostJob from "./pages/PostJob";
 import SavedJob from "./pages/SavedJob";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
     {
@@ -20,27 +21,51 @@ const router = createBrowserRouter([
             },
             {
                 path: "/onboarding",
-                element: <Onboarding />,
+                element: (
+                    <ProtectedRoute>
+                        <Onboarding />
+                    </ProtectedRoute>
+                ),
             },
             {
-                path: "/joblisting",
-                element: <JobListing />,
+                path: "/jobs",
+                element: (
+                    <ProtectedRoute>
+                        <JobListing />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "/job/:id",
-                element: <JobPage />,
+                element: (
+                    <ProtectedRoute>
+                        <JobPage />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "/post-job",
-                element: <PostJob />,
+                element: (
+                    <ProtectedRoute>
+                        <PostJob />
+                    </ProtectedRoute>
+                ),
             },
             {
-                path: "/saved-job",
-                element: <SavedJob />,
+                path: "/saved-jobs",
+                element: (
+                    <ProtectedRoute>
+                        <SavedJob />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "/my-jobs",
-                element: <MyJobs />,
+                element: (
+                    <ProtectedRoute>
+                        <MyJobs />
+                    </ProtectedRoute>
+                ),
             },
         ],
     },
